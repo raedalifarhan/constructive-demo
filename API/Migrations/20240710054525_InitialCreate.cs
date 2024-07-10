@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -32,7 +33,7 @@ namespace API.Migrations
                     Salary = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
                     JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LeavingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ReasonForLeaving = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    ReasonForLeaving = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

@@ -23,6 +23,8 @@ namespace API.RequestHelpers
                 .IncludeMembers(x => x.Department)
                 .ForMember(dest => dest.DepartmentName, opt => opt.MapFrom(src => src.Department!.Name));
 
+            CreateMap<Department, EmployeeDto>();
+
             CreateMap<EmployeeSaveDto, Employee>();
         }
     }

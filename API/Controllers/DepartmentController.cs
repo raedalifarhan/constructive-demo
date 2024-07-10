@@ -48,8 +48,13 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddDepartment(DepartmentSaveDto model)
+        public async Task<ActionResult<DepartmentDto>> AddDepartment(DepartmentSaveDto model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var addedDepartment = await _departmentService.AddDepartmentAsync(model);

@@ -68,7 +68,6 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ReasonForLeaving")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 

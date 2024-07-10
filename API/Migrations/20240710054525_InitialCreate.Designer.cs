@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240709165101_Initial Create")]
+    [Migration("20240710054525_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -71,7 +71,6 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ReasonForLeaving")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 

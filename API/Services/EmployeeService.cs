@@ -19,13 +19,17 @@ namespace API.Services
 
         public async Task<EmployeeDto> GetEmployeeByIdAsync(Guid id)
         {
-            var employee = await _context.Employees.FindAsync(id);
+            var employee = await _context.Employees
+                .Include(x => x.Department)
+                .FirstOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<EmployeeDto>(employee);
         }
 
         public async Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync()
         {
-            var employees = await _context.Employees.ToListAsync();
+            var employees = await _context.Employees
+                .Include(x => x.Department)
+                .ToListAsync();
             return _mapper.Map<IEnumerable<EmployeeDto>>(employees);
         }
 
